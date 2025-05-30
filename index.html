@@ -4,39 +4,43 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Personal Website</title>
+    <title>Won Lee - Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 
 <body>
     <header>
-        <h1>My Personal Website</h1>
+        <h1>Won Lee</h1>
         <nav class="icon-nav">
-            <a href="././index.html" title="Home"><i class="fas fa-home"></i></a>
-            <a href="././cv.html" title="CV"><i class="fas fa-file-alt"></i></a>
-            <a href="././blog.html" title="Blog"><i class="fas fa-blog"></i></a>
-            <a href="././photos.html" title="Photos"><i class="fas fa-camera"></i></a>
+            <a href="./index.html" title="Home"><i class="fas fa-home"></i></a>
+            <a href="./cv.html" title="CV"><i class="fas fa-file-alt"></i></a>
+            <a href="./blog.html" title="Blog"><i class="fas fa-blog"></i></a>
+            <a href="./photos.html" title="Photos"><i class="fas fa-camera"></i></a>
         </nav>
     </header>
 
     <main>
-        <section id="home">
-            <h2>Welcome!</h2>
-            <p>This is my personal website. I'm a developer passionate about creating and sharing.</p>
+        <section class="intro">
+            <h2>Hello!</h2>
+            <p>Welcome to my professional portfolio website.</p>
+            <p>I'm <strong>Won Lee</strong>, a developer currently serving in the Republic of Korea Army.</p>
+            <p>This site contains my projects, blogs, photos, and professional experiences from around the world.</p>
         </section>
 
-
-
-
-        <section id="experience">
-            <h2>Personal Experience</h2>
-            <p>Share stories, projects, and more here...</p>
+        <section class="map-section">
+            <h2>Where I've Been</h2>
+            <div class="map-container">
+                <img src="./assets/images/map.jpg" alt="World Map" class="world-map" />
+                <div class="map-point" style="top: 40%; left: 82.5%;" data-label="Seoul, Korea"></div>
+                <div class="map-point" style="top: 32%; left: 52%;" data-label="Warsaw, Poland"></div>
+                <div class="map-point" style="top: 35%; left: 26%;" data-label="Waterloo, Canada"></div>
+            </div>
         </section>
-
 
         <section id="contact">
-            <h2>Contact</h2>
+            <h2>Contact Me</h2>
             <form id="contact-form">
                 <input type="text" placeholder="Your Name" required />
                 <input type="email" placeholder="Your Email" required />
@@ -47,7 +51,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Won Lee. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
