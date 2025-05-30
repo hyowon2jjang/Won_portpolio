@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Personal Website</title>
-    <link rel="stylesheet" href="./css/photos.css" />
+    <title>Photos - Won Lee</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/photos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 
@@ -22,24 +22,32 @@
     </header>
 
     <main>
-
-
-        <section id="photos">
-            <h2>Photos</h2>
-            <div class="photo-gallery">
-                <!-- Add your photos here -->
-                <img src="./assets/images/profile_picture.jpg" alt="Photo 1" />
-                <img src="./assets/images/IMG_20220217_212715_833.jpg" alt="Photo 2" />
+        <section class="photo-gallery">
+            <h2>My Photos</h2>
+            <p>Snapshots from my travels, life, and memories around the world.</p>
+            <div class="gallery-grid">
+                <!-- Replace these with your own image paths -->
+                <img src="./assets/images/photo1.jpg" alt="Photo 1" />
+                <img src="./assets/images/photo2.jpg" alt="Photo 2" />
+                <img src="./assets/images/photo3.jpg" alt="Photo 3" />
+                <img src="./assets/images/photo4.jpg" alt="Photo 4" />
+                <img src="./assets/images/photo5.jpg" alt="Photo 5" />
+                <img src="./assets/images/photo6.jpg" alt="Photo 6" />
             </div>
         </section>
-
     </main>
 
     <footer>
         <p>&copy; 2025 Won Lee. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" src="" alt="Expanded Photo" />
+    </div>
+
+    <script src="./js/photos.js"></script>
 </body>
 
 </html>
