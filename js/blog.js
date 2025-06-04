@@ -11,7 +11,11 @@ function renderGraph(nodes, links, articles) {
     const height = document.querySelector('#graph').clientHeight;
 
     const svg = d3.select("#graph");
-    svg.selectAll("*").remove();
+    svg.selectAll("*").remove(); // Clear previous graph elements
+
+    // Create a group element to hold all graph elements (links and nodes)
+    // This group will be transformed by the zoom behavior
+    const svgGroup = svg.append("g");
 
     const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).distance(d => 100 / d.weight))
@@ -19,7 +23,7 @@ function renderGraph(nodes, links, articles) {
         .force("center", d3.forceCenter(width / 2, height / 2))
         .velocityDecay(0.4);
 
-    const link = svg.append("g")
+    const link = svgGroup.append("g") // Append links to svgGroup
         .attr("stroke", "#999")
         .attr("stroke-opacity", 0.6)
         .selectAll("line")
@@ -27,20 +31,21 @@ function renderGraph(nodes, links, articles) {
         .join("line")
         .attr("stroke-width", d => d.weight);
 
-    const zoom = d3.zoom()
-        .on("zoom", (event) => {
-            svgGroup.attr("transform", event.transform);
-        })
-        .filter((event) => event.type !== "dblclick"); // Disable zoom on double click
-
-    d3.select("svg").call(zoom);
-
-
-    const node = svg.append("g")
+    const node = svgGroup.append("g") // Append nodes to svgGroup
         .selectAll("g")
         .data(nodes)
         .join("g")
         .attr("class", "node");
+
+    // Define the zoom behavior once and apply it correctly
+    const zoom = d3.zoom()
+        .scaleExtent([0.1, 10]) // Optional: set zoom limits
+        .on("zoom", (event) => {
+            svgGroup.attr("transform", event.transform); // Apply transform to the group
+        })
+        .filter((event) => event.type !== "dblclick"); // Disable zoom on double click
+
+    svg.call(zoom); // Apply the zoom behavior to the main SVG element
 
     node.append("circle")
         .attr("r", 10)
@@ -56,13 +61,19 @@ function renderGraph(nodes, links, articles) {
         .on("click", function (event, d) {
             document.getElementById("article-title").innerText = d.title;
             document.getElementById("article-date").innerText = d.date;
+            // Assuming articles is an object where keys are node IDs
             document.getElementById("article-content").innerText = articles[d.id];
+
+            const articleKeywordsDiv = document.getElementById("article-keywords");
+            const keywordHtml = d.keyword.map(kw => `<span>#${kw}</span>`).join(' ');
+            articleKeywordsDiv.innerHTML = keywordHtml;
+
         })
         .call(drag(simulation))
         .on("dblclick", (event, d) => {
-            // Prevent default zoom or focus
+            // Prevent default zoom or focus when double-clicking a node
             event.preventDefault();
-            event.stopPropagation();
+            event.stopPropagation(); // Stop propagation so the SVG's dblclick doesn't fire
         });
 
     node.append("text")
@@ -80,7 +91,6 @@ function renderGraph(nodes, links, articles) {
 
         node.attr("transform", d => `translate(${d.x},${d.y})`);
     });
-
 
     function highlight(id, on) {
         link.attr("stroke", d =>
@@ -105,8 +115,4 @@ function renderGraph(nodes, links, articles) {
                 d.fy = null;
             });
     }
-
-    svg.call(d3.zoom().on("zoom", ({ transform }) => {
-        svg.selectAll("g").attr("transform", transform);
-    }));
 }
