@@ -1,0 +1,48 @@
+In your style.css or cv.css file
+
+.pdf-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; 
+    margin: 20px auto; 
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.pdf-container iframe {
+    display: block; 
+    width: 100%;
+    height: 600px; 
+}
+
+
+.pdf-container::before {
+    content: "My Curriculum Vitae"; 
+    display: block;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 1.1em;
+}
+
+
+@media (max-width: 768px) {
+    .pdf-container {
+        margin: 15px;
+        border-radius: 5px;
+    }
+
+    .pdf-container iframe {
+        height: 400px; 
+    }
+
+    #cv a {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}

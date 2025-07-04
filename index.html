@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
-
 <body>
     <header>
         <h1>Won Lee</h1>
@@ -22,20 +20,49 @@
     </header>
 
     <main>
-        <section class="intro">
-            <h2>Hello!</h2>
-            <p>Welcome to my professional portfolio website.</p>
-            <p>I'm <strong>Won Lee</strong>, a developer currently serving in the Republic of Korea Army.</p>
-            <p>This site contains my projects, blogs, photos, and professional experiences from around the world.</p>
+        <!-- Subtle mathematical motif background -->
+        <div style="position:absolute;z-index:0;top:0;left:0;width:100vw;height:100vh;pointer-events:none;opacity:0.08;background:repeating-linear-gradient(135deg,#0056b3 0 1px,transparent 1px 40px),repeating-linear-gradient(45deg,#00bcd4 0 1px,transparent 1px 60px);"></div>
+        <section class="elegant-intro">
+            <h2>Elegant & Analytical</h2>
+            <p class="subtitle">Portfolio of <strong>Won Lee</strong></p>
+            <p class="desc">
+                Developer, Data Enthusiast, and Problem Solver.<br>
+                I blend analytical thinking with creative design to build impactful digital solutions.
+            </p>
         </section>
 
-        <section class="map-section">
-            <h2>Where I've Been</h2>
-            <div class="map-container">
-                <img src="./assets/images/map.jpg" alt="World Map" class="world-map" />
-                <div class="map-point" style="top: 40%; left: 82.5%;" data-label="Seoul, Korea"></div>
-                <div class="map-point" style="top: 32%; left: 52%;" data-label="Warsaw, Poland"></div>
-                <div class="map-point" style="top: 35%; left: 26%;" data-label="Waterloo, Canada"></div>
+        <section class="project-showcase">
+            <h3>Featured Projects</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center;">
+                <!-- <div class="project-card">
+                    <h4>Data-driven Blog Platform</h4>
+                    <p>A modern blog system with analytics, built using Python and JavaScript. Features dynamic content, user insights, and elegant UI.</p>
+                    <div class="stack">Python · JS · HTML/CSS</div>
+                    <a href="./blog.html">View Blog</a>
+                </div>
+                <div class="project-card">
+                    <h4>Photo Gallery Explorer</h4>
+                    <p>A minimalist, responsive photo gallery with smooth transitions and metadata overlays. Optimized for both desktop and mobile.</p>
+                    <div class="stack">HTML · CSS · JS</div>
+                    <a href="./photos.html">View Photos</a>
+                </div>
+                <div class="project-card">
+                    <h4>Interactive CV & Timeline</h4>
+                    <p>A dynamic CV page with interactive timeline and downloadable PDF. Highlights global experience and analytical skills.</p>
+                    <div class="stack">HTML · CSS · JS</div>
+                    <a href="./cv.html">View CV</a>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h3>Core Skills</h3>
+            <div>
+                <div>Python & Data Analysis</div>
+                <div>Web Development (HTML/CSS/JS)</div>
+                <div>UI/UX & Visualization</div>
+                <div>Mathematical Thinking</div>
+                <div>Creative Thinking</div>
             </div>
         </section>
 
@@ -54,7 +81,6 @@
         <p>&copy; 2025 Won Lee. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./js/home.js"></script>
 </body>
-
 </html>
